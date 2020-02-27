@@ -1,10 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import App from "./components/app/app.jsx";
-
-const Settings = {
-  PLACES_COUNT: 314
-};
+import renderer from "react-test-renderer";
+import Card from "./card.jsx";
 
 const OfferData = [
   {
@@ -29,12 +25,12 @@ const OfferData = [
   }
 ];
 
+it(`Should <Сard /> render correctly`, () => {
+  const tree = renderer
+    .create(<Card
+      offer={OfferData}
+      onCardTitleClick={() => {}}
+    />).toJSON();
 
-ReactDOM.render(
-    <App
-      placesCount={Settings.PLACES_COUNT}
-      offers={OfferData}
-    />,
-    document.querySelector(`#root`)
-);
-
+  expect(tree).toMatchSnapshot();
+});

@@ -2,13 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import Main from "../main/main.jsx";
 
+const cardTitleClickHandler = () => {};
 
 const App = (props) => {
   const {placesCount} = props;
   const {offers} = props;
 
   return (
-    <Main placesCount={placesCount} offers={offers}/>
+    <Main
+      placesCount={placesCount}
+      offers={offers}
+      onCardTitleClick={cardTitleClickHandler}
+    />
   );
 };
 
@@ -16,6 +21,7 @@ App.propTypes = {
   placesCount: PropTypes.number.isRequired,
   offers: PropTypes.arrayOf(
       PropTypes.shape({
+        id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         photo: PropTypes.string.isRequired
       })

@@ -3,9 +3,12 @@ import PropTypes from "prop-types";
 
 const Card = (props) => {
 
-  const {offers} = props;
+  const {offer} = props;
 
-  const {title, photo} = offers;
+  const {onCardTitleClick} = props;
+
+  const {title, photo} = offer;
+
   return (
     <article className="cities__place-card place-card">
       <div className="place-card__mark">
@@ -35,8 +38,8 @@ const Card = (props) => {
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
-        <h2 className="place-card__name">
-          <a href="#">{title}</a>
+        <h2 className="place-card__name" onClick={onCardTitleClick}>
+          <a href="#" >{title}</a>
         </h2>
         <p className="place-card__type">Apartment</p>
       </div>
@@ -45,12 +48,14 @@ const Card = (props) => {
 };
 
 Card.propTypes = {
-  offers: PropTypes.arrayOf(
+  onCardTitleClick: PropTypes.func.isRequired,
+  offer:
       PropTypes.shape({
+        id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         photo: PropTypes.string.isRequired
       })
-  ).isRequired
+  .isRequired
 };
 
 export default Card;

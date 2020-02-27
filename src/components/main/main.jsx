@@ -7,12 +7,17 @@ const Main = (props) => {
 
   const {placesCount} = props;
 
+  const {onCardTitleClick} = props;
+
   const {offers} = props;
 
   const cards = offers.map((item) => {
+
     return (
-      // eslint-disable-next-line react/jsx-key
-      <Card offers = {item}/>
+      <Card key = {item.id}
+        offer = {item}
+        onCardTitleClick={onCardTitleClick}
+      />
     );
   });
 
@@ -123,8 +128,10 @@ const Main = (props) => {
 
 Main.propTypes = {
   placesCount: PropTypes.number.isRequired,
+  onCardTitleClick: PropTypes.func.isRequired,
   offers: PropTypes.arrayOf(
       PropTypes.shape({
+        id: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
         photo: PropTypes.string.isRequired
       })
