@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Main from "../main/main.jsx";
 
-const cardTitleClickHandler = () => {};
+const handleCardTitleClick = () => {};
 
 const App = (props) => {
   const {placesCount} = props;
@@ -12,7 +12,7 @@ const App = (props) => {
     <Main
       placesCount={placesCount}
       offers={offers}
-      onCardTitleClick={cardTitleClickHandler}
+      onCardTitleClick={handleCardTitleClick}
     />
   );
 };

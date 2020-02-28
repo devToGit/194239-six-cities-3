@@ -1,11 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Card = (props) => {
-
-  const {offer} = props;
-
-  const {onCardTitleClick} = props;
+const Card = ({offer, onCardTitleClick}) => {
 
   const {title, photo} = offer;
 
