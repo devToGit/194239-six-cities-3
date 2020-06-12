@@ -1,25 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from "react";
-import PropTypes from "prop-types";
-import Card from "../card/card.jsx";
+// import PropTypes from "prop-types";
+import PlacesList from "../placesList/placesList.jsx";
 
 
-const Main = (props) => {
-
-  const {placesCount} = props;
-
-  const {onCardTitleClick} = props;
-
-  const {offers} = props;
-
-  const cards = offers.map((item) => {
-
-    return (
-      <Card key = {item.id}
-        offer = {item}
-        onCardTitleClick={onCardTitleClick}
-      />
-    );
-  });
+const Main = ({placesCount, offers, onCardTitleClick}) => {
 
   return (
     <div className="page page--gray page--main">
@@ -112,9 +97,7 @@ const Main = (props) => {
                   </select>
                   */}
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {cards}
-              </div>
+              <PlacesList offers={offers} onCardTitleClick={onCardTitleClick}/>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
@@ -126,17 +109,17 @@ const Main = (props) => {
   );
 };
 
-Main.propTypes = {
-  placesCount: PropTypes.number.isRequired,
-  onCardTitleClick: PropTypes.func.isRequired,
-  offers: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        photo: PropTypes.string.isRequired
-      })
-  ).isRequired
-};
+// Main.propTypes = {
+//   placesCount: PropTypes.number.isRequired,
+//   onCardTitleClick: PropTypes.func.isRequired,
+//   offers: PropTypes.arrayOf(
+//       PropTypes.shape({
+//         id: PropTypes.number.isRequired,
+//         title: PropTypes.string.isRequired,
+//         photo: PropTypes.string.isRequired
+//       })
+//   ).isRequired
+// };
 
 
 export default Main;

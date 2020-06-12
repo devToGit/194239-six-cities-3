@@ -1,13 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import Main from "../main/main.jsx";
 
 const handleCardTitleClick = () => {};
 
-const App = (props) => {
-  const {placesCount} = props;
-  const {offers} = props;
-
+// eslint-disable-next-line react/prop-types
+const App = ({placesCount, offers}) => {
   return (
     <Main
       placesCount={placesCount}
@@ -17,16 +15,16 @@ const App = (props) => {
   );
 };
 
-App.propTypes = {
-  placesCount: PropTypes.number.isRequired,
-  offers: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        title: PropTypes.string.isRequired,
-        photo: PropTypes.string.isRequired
-      })
-  ).isRequired
-};
+// App.propTypes = {
+//   placesCount: PropTypes.number.isRequired,
+//   offers: PropTypes.arrayOf(
+//       PropTypes.shape({
+//         id: PropTypes.number.isRequired,
+//         title: PropTypes.string.isRequired,
+//         photo: PropTypes.string.isRequired
+//       })
+//   ).isRequired
+// };
 
 export default App;
 
